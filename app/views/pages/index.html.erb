@@ -1,0 +1,38 @@
+<!-- Bonus Exercise:
+
+1. Display a number of products and their prices.
+2. You can click on a product to add it to your cart. There is a separate cart section where your products will appear.
+3. As you add products to your cart, the subtotal changes accordingly.
+There should also be a sales tax and total that calculated and displayed automatically.
+4. You should also be able to remove items from your cart by clicking them in your cart. -->
+
+<h1>Product App</h1>
+<div ng-app="app">
+  <!-- {{ 1 + 1 }} -->
+  <div ng-controller="productCtrl">
+
+    <div id="products">
+      <h3>Products</h3>
+      <div ng-repeat="product in products track by $index">
+        <ul>
+          <li ng-click="addProductToCart(product)">
+            {{ product.product }}
+            <br>
+            ${{ product.price }}
+          </li>
+        </ul>
+      </div>
+
+      <div id="cart">
+        <h3>Cart</h3>
+        <div ng-repeat="product in cart track by $index">
+          <ul>
+            <li>
+              {{ product.product }}
+            </li>
+          </ul>
+        </div>
+        <h4>Subtotal: {{ product.price }}</h4>
+      </div>
+  </div>
+</div>
